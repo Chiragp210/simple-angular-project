@@ -1,0 +1,80 @@
+<div style="display: flex; justify-content: center; align-items: center;">
+  <mat-card class="m-3 form-control" style="background-color: rgb(194, 255, 235); max-width: 800px;">
+    <mat-card-header class="justify-content-center">
+      <mat-card-title style="font-size: xx-large;">Registration Form</mat-card-title>
+      <mat-card-subtitle style="font-size: x-large;">Welcome, Sir</mat-card-subtitle>
+    </mat-card-header>
+    <br>
+
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()"
+      style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+      <div class="mx-5" style="width: 100%; display: flex; flex-wrap: wrap;">
+        <!-- Name Field -->
+        <mat-form-field class="px-3" style="width: calc(50% - 10px); margin-right: 20px;">
+          <input matInput placeholder="Name" formControlName="name">
+          <mat-error
+            *ngIf="registrationForm.get('name')?.invalid && (registrationForm.get('name')?.dirty || registrationForm.get('name')?.touched)">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+        <br>
+
+        <!--Email Field-->
+        <mat-form-field class="px-3" style="width: calc(50% - 10px);">
+          <input matInput placeholder="Email" type="email" formControlName="email">
+          <mat-error
+            *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
+            Valid Email address is required
+          </mat-error>
+        </mat-form-field>
+        <br>
+
+        <!-- Age Field -->
+        <mat-form-field class="px-3" style="width: calc(100% - 10px);">
+          <mat-select placeholder="Age" formControlName="ageGroup">
+            <mat-option value="one">Below 6</mat-option>
+            <mat-option value="two">7 to 15</mat-option>
+            <mat-option value="three">16 to 25</mat-option>
+            <mat-option value="four">26 to 55</mat-option>
+            <mat-option value="five">56 above</mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="registrationForm.get('ageGroup')?.invalid && (registrationForm.get('ageGroup')?.dirty || registrationForm.get('ageGroup')?.touched)">
+            Age group is required
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <!-- Address Field -->
+        <mat-form-field class="px-3" style="width: 100%;">
+          <textarea matInput placeholder="Address" formControlName="address"></textarea>
+          <mat-error
+            *ngIf="registrationForm.get('address')?.invalid && (registrationForm.get('address')?.dirty || registrationForm.get('address')?.touched)">
+            Address is required
+          </mat-error>
+        </mat-form-field>
+        <br>
+
+        <!-- Gender Radio Buttons -->
+        <mat-radio-group style="width: 100%;" formControlName="gender">
+          <mat-radio-button class="px-3" value="male">Male</mat-radio-button>
+          <mat-radio-button class="px-3" value="female">Female</mat-radio-button>
+          <mat-radio-button class="px-3" value="other">Other</mat-radio-button>
+        </mat-radio-group>
+        <br>
+        <br>
+        <!-- Password Field -->
+        <mat-form-field class="px-3" style="width: 100%;">
+          <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password">
+          <mat-error
+            *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">
+            Password is required and must be at least 6 characters long
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <!-- Submit Button -->
+      <mat-card-actions class="mx-5" style="width: 100%;">
+        <button type="submit" class="btn btn-outline-primary" style="width: 100%;">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card>
+</div>

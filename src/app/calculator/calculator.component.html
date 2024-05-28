@@ -1,0 +1,62 @@
+<h1 style="text-align: center; padding-top: 20px; font-size: 40px; color: rgb(0, 84, 56);">Calculator</h1>
+<div class="container" style="display: flex; justify-content: center;">
+
+    <mat-card class="m-5" style="width: 100%; 
+        max-width: 400px; 
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        background-position: center; 
+        background-color: rgb(182, 255, 238); ">
+        <div class="container m-4">
+            <div class="display">
+                <form [formGroup]="inputStr" style="padding-bottom: 30px; padding-top: 20px;">
+                    <input type="text" formControlName="text" class="form-control"
+                        style="width: 300px; padding-bottom: 30px;">
+                </form>
+
+                <div class="buttons">
+                    <div class="operators row">
+                        <div class="col-auto">
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">7</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">8</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">9</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-warning m-2 px-4">-</button>
+                        </div>
+                    </div>
+                    <div class="operators row">
+                        <div class="col-auto">
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">4</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">5</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">6</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-warning m-2 px-4">*</button>
+                        </div>
+                    </div>
+                    <div class="operators row ">
+                        <div class="col-auto">
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">1</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">2</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">3</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-warning m-2 px-4">-</button>
+                        </div>
+                    </div>
+                    <div class="operators row">
+                        <div class="col-auto px-3">
+                            <button (click)="buttonClick($event.target)" class="btn btn-warning m-2 px-4">.</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-primary m-2 px-4">0</button>
+                            <button (click)="buttonClick($event.target)" class="btn btn-warning m-2 px-4">/</button>
+                            <button (click)="deleteLast()" class="btn btn-danger m-2 px-3">Del</button>
+                        </div>
+                    </div>
+                    <div class="operators row" style="padding-bottom: 20px;">
+                        <div class="col-auto px-3">
+                            <button (click)="buttonClick($event.target)" class="btn btn-warning m-2 px-3">%</button>
+                            <button (click)="clearDisplay()" class="btn btn-danger m-2 px-4">Clear</button>
+                            <button (click)="calculate()" class="btn btn-success m-2 px-5">=</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </mat-card>
+</div>
